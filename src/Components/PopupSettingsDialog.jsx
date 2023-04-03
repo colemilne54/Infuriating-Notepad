@@ -17,8 +17,7 @@ function PopupSettingsDialog(props) {
       props.onClose();
     }
   }
-
-
+  
   return (
     <div className="popup-settings-dialog">
       <h2>Settings</h2>
