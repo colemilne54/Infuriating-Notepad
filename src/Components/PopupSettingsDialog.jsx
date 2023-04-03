@@ -23,11 +23,14 @@ function PopupSettingsDialog(props) {
     <div className="popup-settings-dialog">
       <h2>Settings</h2>
       <label>
-        Prompt Size:
+        Prompt Size: {promptSize}
+        <br />
         <input type="range" min=".01" max=".99" value={promptSize} onChange={handlePromptSize} />
       </label>
+      <br />
       <label>
-        Random Chance:
+        Random Chance: {randomChance}
+        <br />
         <input type="range" min="1" max="20" value={randomChance} onChange={handleRandomChance} />
       </label>
       <button onClick={handleCloseClick}>Close</button>
