@@ -7,11 +7,25 @@ function GeneratePrompt() {
   return randomWords(Math.floor(Math.random() * (max - min + 1) + min)).join(' ');
 }
 
+var randomChance = .2;
+
 function refreshPage() {
   window.location.reload(false);
 }
 
-const prompt = GeneratePrompt();
+var prompt = GeneratePrompt();
+
+function appendPrompt() {
+  prompt += ' ';
+  prompt += randomWords(3).join(' ');
+}
+
+const handlePaste = (e) => {
+  e.preventDefault();
+  randomChance = .5;
+  appendPrompt();
+  alert("nice try. now its even harder");
+};
 
 export default function Notepad() {
   const [postContent, setPostContent] = useState('');
@@ -19,7 +33,7 @@ export default function Notepad() {
   function handleChange(input) {
     var randChar = Math.random().toString(36).slice(2, 3);
     
-    if (Math.random() < .2) {
+    if (Math.random() < randomChance) {
       setPostContent(postContent + randChar);
     } else {
       setPostContent(input);
@@ -34,6 +48,7 @@ export default function Notepad() {
         value={postContent}
         spellCheck={false}
         onChange={e => handleChange(e.target.value)}
+        onPaste={handlePaste}
       />
       <p>{prompt == postContent && 'nice work'}</p>
       <div>{prompt == postContent && <button onClick={refreshPage}>new prompt</button>}</div>
