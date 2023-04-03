@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function PopupSettingsDialog(props) {
   const [promptSize, setPromptSize] = useState(5);
-  const [randomChance, setRandomChance] = useState(.2);
+  const [randomChance, setRandomChance] = useState(2);
 
   function handlePromptSize(event) {
     setPromptSize(event.target.value);
@@ -31,7 +31,7 @@ function PopupSettingsDialog(props) {
       <label>
         Random Chance: {randomChance}
         <br />
-        <input type="range" min=".01" max=".99" value={randomChance} onChange={handleRandomChance} />
+        <input type="range" min="1" max="99" value={randomChance} onChange={handleRandomChance} />
       </label>
       <button onClick={handleCloseClick}>Close</button>
     </div>
