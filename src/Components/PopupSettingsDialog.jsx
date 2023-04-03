@@ -33,6 +33,7 @@ function PopupSettingsDialog(props) {
         <br />
         <input type="range" min="1" max="99" value={randomChance} onChange={handleRandomChance} />
       </label>
+      <br />
       <button onClick={handleCloseClick}>Close</button>
     </div>
   );
