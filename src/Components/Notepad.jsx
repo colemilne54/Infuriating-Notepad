@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import randomWords from 'random-words';
+import PopupSettingsDialog from './PopupSettingsDialog';
 
 function GeneratePrompt() {
   const min = 3;
@@ -29,6 +30,15 @@ const handlePaste = (e) => {
 
 export default function Notepad() {
   const [postContent, setPostContent] = useState('');
+  const [showSettings, setShowSettings] = useState(false);
+
+  function handleSettingsButtonClick() {
+    setShowSettings(true);
+  }
+
+  function handleSettingsDialogClose() {
+    setShowSettings(false);
+  }
 
   function handleChange(input) {
     var randChar = Math.random().toString(36).slice(2, 3);
@@ -42,6 +52,8 @@ export default function Notepad() {
 
   return (
     <>
+      <button onClick={handleSettingsButtonClick}>Settings</button>
+      {showSettings && <PopupSettingsDialog onClose={handleSettingsDialogClose} />}
       <p>type the following:</p>
       <p>{`${prompt}`}</p>
       <textarea
