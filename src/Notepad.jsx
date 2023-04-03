@@ -30,14 +30,15 @@ export default function Notepad() {
 
   return (
     <>
-    <p>type the following:</p>
-    <p>{`${prompt}`}</p>
-    <textarea
-      value={postContent}
-      onChange={e => handleChange(e.target.value)}
-    />
-    <p>{prompt == postContent && 'nice work'}</p>
-    <div>{prompt == postContent && <button onClick={refreshPage}>new prompt</button>}</div>
+      <p>type the following:</p>
+      <p>{`${prompt}`}</p>
+      <textarea
+        value={postContent}
+        spellCheck={false}
+        onChange={e => handleChange(e.target.value)}
+      />
+      <p>{prompt == postContent && 'nice work'}</p>
+      <div>{prompt == postContent && <button onClick={refreshPage}>new prompt</button>}</div>
     </>
   );
 }
