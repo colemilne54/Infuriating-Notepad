@@ -7,6 +7,12 @@ function GeneratePrompt() {
   return randomWords(Math.floor(Math.random() * (max - min + 1) + min)).join(' ');
 }
 
+function refreshPage() {
+  window.location.reload(false);
+}
+
+
+
 const prompt = GeneratePrompt();
 
 export default function Notepad() {
@@ -31,6 +37,7 @@ export default function Notepad() {
       onChange={e => handleChange(e.target.value)}
     />
     <p>{prompt == postContent && 'nice work'}</p>
+    <div>{prompt == postContent && <button onClick={refreshPage}>new prompt</button>}</div>
     </>
   );
 }
