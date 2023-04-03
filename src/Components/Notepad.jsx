@@ -52,8 +52,8 @@ export default function Notepad() {
 
   return (
     <>
-      <button onClick={handleSettingsButtonClick}>Settings</button>
-      {showSettings && <PopupSettingsDialog onClose={handleSettingsDialogClose} />}
+      {/* <button onClick={handleSettingsButtonClick}>Settings</button>
+      {showSettings && <PopupSettingsDialog onClose={handleSettingsDialogClose} />} */}
       <p>type the following:</p>
       <p>{`${prompt}`}</p>
       <textarea
