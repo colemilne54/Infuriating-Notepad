@@ -1,34 +1,6 @@
 import React, { useState } from 'react';
 import randomWords from 'random-words';
 
-// ----------------- Exit Prompt Code -----------------
-
-const initBeforeUnLoad = (showExitPrompt) => {
-  window.onbeforeunload = (event) => {
-    // Show prompt based on state
-    if (showExitPrompt) {
-      const e = event || window.event;
-      e.preventDefault();
-      if (e) {
-        e.returnValue = ''
-      }
-      return '';
-    }
-  };
-};
-
-function MyComponent() {
-  const [showExitPrompt, setShowExitPrompt] = useState(false);
-
-  // Initialize the beforeunload event listener after the resources are loaded
-  window.onload = function() {
-    initBeforeUnLoad(showExitPrompt);
-  };
-}
-
-
-// ----------------- Exit Prompt Code -----------------
-
 function GeneratePrompt() {
   const min = 3;
   const max = 10;
