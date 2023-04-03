@@ -11,8 +11,6 @@ function refreshPage() {
   window.location.reload(false);
 }
 
-
-
 const prompt = GeneratePrompt();
 
 export default function Notepad() {
